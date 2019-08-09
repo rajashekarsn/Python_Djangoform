@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>{{ name }}</title>-->
+    </head>
+<body>
+<h2>Member Registration</h2>
+    <form action ="add_new_member" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+              <div class="form-group">
+                <label for="{{ field.label }}">{{field.label}}:</label>
+                  {{field}}
+              </div>
+         {% endfor %}
+
+      <button type="submit" class="btn btn-primary btn-block">Save</button>
+    </form>
+</body>
+</html>
+
+
+{% endblock %}
